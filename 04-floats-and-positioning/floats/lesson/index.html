@@ -1,22 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Float Example</title>
+  <title>Float</title>
   <link rel='stylesheet' type='text/css' href='../../css/reset.css'>
   <link rel='stylesheet' type='text/css' href='../css/common.css'>
   <link rel='stylesheet' type='text/css' href='styles.css'>
 </head>
 <body>
   <div class='container'>
-    <h1>Float Example</h1>
-    <div class='floated_numbers'>
-      <div class='float_number'>1</div>
-      <div class='float_number'>2</div>
-      <div class='float_number'>3</div>
-      <div class='float_number'>4</div>
-      <div class='float_number'>5</div>
-    </div>
-    <div class='unfloated'>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</div>
+
+    <h1>Floats: Lesson Working File</h1>
+
+    <section>
+
+      <h2>Left to right</h2>
+
+      <div class='floated_numbers'>
+        <div class='float_number'>1</div>
+        <div class='float_number'>2</div>
+        <div class='float_number'>3</div>
+        <div class='float_number'>4</div>
+        <div class='float_number'>5</div>
+      </div>
+
+    </section>
+
+
+    <section>
+
+      <h2>Wrapping Content</h2>
+
+      <h3>Image not floated</h3>
+
+      <p>
+        <img src='jules-winnfield.jpg' class='samuel-not-floated'>
+        The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+      </p>
+
+
+      <h3>Image floated to the left</h3>
+      <p>
+        <img src='jules-winnfield.jpg' class='samuel-floated'>
+        The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+      </p>
+
+    </section>
+
+    <section class='overflow-example'>
+
+      <h2>Containing Floats With Overflow</h2>
+
+      <div class='contained-with-overflow'>
+        <h4>overflow: hidden</h4>
+        <p>
+          The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+        </p>
+      </div>
+
+      <div class='not-contained-with-overflow'>
+        <h4>overflow: visible</h4>
+       (the default, not explicitly specified)
+        <p>
+          The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
+        </p>
+      </div>
+
+    </section>
+
   </div>
 </body>
 </html>
