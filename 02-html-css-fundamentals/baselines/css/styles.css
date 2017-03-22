@@ -1,0 +1,43 @@
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+#main-article {
+  background-color: yellow;
+  color: #707070;
+  color: rgba(112, 112, 112, 0.25);
+}
+
+.post {
+  background-color: blue;
+}
+
+article {
+  background-color: tomato;
+}
+
+.post > h1 {
+  color: red;
+}
+
+.post h1 {
+  font-size: 64px;
+  color: cadetblue;
+}
+
+li:first-child {
+  background-color: black;
+  color: white;
+}
+
+li:last-child {
+  background-color: yellow;
+}
+
+li:nth-child(2n) {
+  background-color: lightgray;
+  text-align
+}
