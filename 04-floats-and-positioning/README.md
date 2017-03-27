@@ -140,4 +140,3 @@ Follow along with the lesson file: [Positioning Lesson Working File](positioning
 [MDN: position] (https://developer.mozilla.org/en/docs/Web/CSS/position) (documentation)
 [Learn CSS Layout: Position](http://learnlayout.com/position.html) (tutorial)
 [CSS Positioning 101](http://alistapart.com/article/css-positioning-101) (tutorial)
-
