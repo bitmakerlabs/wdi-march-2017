@@ -39,8 +39,6 @@ Data types are basic building blocks of programming languages. Programs are cons
 How we represent numeric data in our programs
 
   * Integers
-    * FixNum
-    * BigNum
   * Floats
 
 ### Strings
