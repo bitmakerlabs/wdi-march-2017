@@ -10,6 +10,10 @@ Introduction to objects and classes, what they are, why we use them, how to code
 
 ## Review of Methods and Variables
 
+* What is a Method?
+  * Has inputs (arguments), and an output (return value)
+  * [Espresso Machine](https://www.espressomachineinsider.com/wp-content/uploads/2016/06/Breville-BES870XL-Review.png)
+  * [Pasta Maker](http://www.whatsbestforum.com/attachment.php?attachmentid=23513&d=1448130239)
 * Implement `order_pizza` method
 
 ## OOP Theory
