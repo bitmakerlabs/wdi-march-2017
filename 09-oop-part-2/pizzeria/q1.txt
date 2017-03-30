@@ -1,0 +1,14 @@
+Write a Pizza class
+
+- Initialize a pizza with a list of toppings.
+  - To keep it simpler, disregard the dough type that we talked about yesterday.
+
+- The behaviours of a pizza are:
+  - bake
+  - cut
+    - Note that a maximum of *3* cuts can be performed.
+	  - (Question to ask yourself: Can an uncooked pizza be cut?)
+  - eat
+    - (Question to ask yourself: Can an uncut pizza be eaten?)
+
+- Think about what kind of attributes (i.e. state) that you will need to implement these behaviours

@@ -1,0 +1,13 @@
+Write a Pizzeria class.
+
+- A pizzeria has the following behaviours:
+
+  - order
+    - What is the return value of this method?
+	  - Does this method need arguments?
+  - open
+    - No orders can be placed if the pizzeria is closed
+  - close
+  - restock
+    - Restocking cannot happen unless the pizzeria is closed
+    - A pizzeria is capable of making *5* pizzas before it needs to be restocked.
