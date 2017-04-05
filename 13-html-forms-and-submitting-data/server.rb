@@ -10,8 +10,10 @@ get '/films' do
   "GET request: #{params}"
 end
 
+
 post '/films' do
-  "POST request: #{params}"
+  Film.create(params)
+  redirect to('/')  
 end
 
 put '/films' do
