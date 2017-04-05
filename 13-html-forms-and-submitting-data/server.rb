@@ -6,6 +6,10 @@ get '/' do
   erb :index
 end
 
+get '/new_film' do
+  erb :form
+end
+
 get '/films' do
   "GET request: #{params}"
 end
@@ -13,7 +17,7 @@ end
 
 post '/films' do
   Film.create(params)
-  redirect to('/')  
+  redirect to('/')
 end
 
 put '/films' do

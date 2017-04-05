@@ -1,0 +1,106 @@
+<h2>New Film</h2>
+<form class="new-film" action="/films" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <div>
+    <label for="film-title">Title:</label>
+    <input id="film-title" type="text" name="title" placeholder="eg. My Neighbour Totoro">
+  </div>
+
+  <div>
+    <!-- <input type="date" name="name" value="">
+    <input type="time" name="name" value="">
+    <input type="email" name="name" value="">
+    <input type="number" name="name" value="">
+    <input type="color" name="name" value="">
+    <input type="url" name="name" value="">
+    <input type="range" name="name" value=""> -->
+    <!-- input types: date / time / email / tel / url / color / range / number / search -->
+  </div>
+
+  <div>
+    <label for="film-description">Description:</label>
+    <textarea id="film-description" name="description"></textarea>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>Rating:</legend>
+
+      <label>
+        1 Star:
+        <input type="radio" name="rating" value="1">
+      </label>
+
+      <label>
+        2 Stars:
+        <input type="radio" name="rating" value="2">
+      </label>
+
+      <label>
+        3 Stars:
+          <input type="radio" name="rating" value="3">
+      </label>
+
+      <label>
+        4 Stars:
+        <input type="radio" name="rating" value="4">
+      </label>
+
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>Genre:</legend>
+      <label>
+        Drama
+        <input type="checkbox" name="genre[]" value="Drama">
+      </label>
+
+      <label>
+        Comedy
+        <input type="checkbox" name="genre[]" value="Comedy">
+      </label>
+
+      <label>
+        Animated
+        <input type="checkbox" name="genre[]" value="Animated">
+      </label>
+
+      <label>
+        Documentary
+        <input type="checkbox" name="genre[]" value="Documentary">
+      </label>
+    </fieldset>
+  </div>
+
+
+  <div>
+    <label for="film-country">Country:</label>
+    <select id="film-country" name="country">
+      <option value="">Please select a country</option>
+      <option value="CA">Canada</option>
+      <option value="GB">United Kingdom</option>
+      <option value="JP">Japan</option>
+    </select>
+  </div>
+
+
+  <div>
+    <!-- file -->
+    <!-- <input type="file" name="name" value=""> -->
+  </div>
+
+  <!-- hidden -->
+  <!-- <input type="hidden" name="loyalty-point-number" value="lksdjflksjflkajsdflka"> -->
+
+  <div>
+    <!-- input submit / button -->
+    <!-- <input type="submit" value="Go!"> -->
+    <button type="submit">
+      Go!
+      <img src="http://placebear.com/100/100" alt="a bear" />
+    </button>
+  </div>
+
+</form>
