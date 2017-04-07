@@ -5,5 +5,11 @@
 <% if @contacts.empty? %>
   <p>No contacts yet!</p>
 <% else %>
-
+  <ul>
+  <% @contacts.each do |contact| %>
+    <li>
+      <%= contact.full_name %>
+    </li>
+  <% end %>
+  </ul>
 <% end %>
