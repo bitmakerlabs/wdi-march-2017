@@ -88,13 +88,13 @@ end
 This routes matches the request like so:
 
 - `get` - matches the http request method.
-- `/products/` - matches **/products/** in http://store.com/products/55
+- `products` - matches **/products/** in http://store.com/products/55
 - `:id` - as it starts with a colon `:`, it's a wildcard match and will match anything. Therefore it matches **55** in http://store.com/products/55
 
-It then sends that request to:
+The request is then sent on like so:
 
-- `products` - the **Products**Controller
-- `show` - the **show** action (ruby method) in the ProductsController
+- `products` - to the **Products**Controller
+- `show` - to the **show** action (ruby method) in the ProductsController
 
 Inside of the Products Controller:
 
@@ -119,19 +119,19 @@ Anything static (not prefixed with a **colon**) must be matched exactly for a ro
 In the following example:
 
 ```ruby
-get '/products/:id' => 'products#show'
+get 'products/:id' => 'products#show'
 ```
 
 `products` is static segments.
 
 ## Dynamic Segments
 
-Anything dynamic (prefixed with a **colon**) can match on *anything*:
+Anything dynamic (prefixed with a **colon**) can match on *anything*.
 
 In the following example:
 
 ```ruby
-get '/products/:id' => 'products#show'
+get 'products/:id' => 'products#show'
 ```
 
 `:id` is a dynamic segment, and the following would be legitimate matches:
@@ -143,9 +143,9 @@ http://localhost:3000/products/spiderman_comic
 
 In the above cases, both `333` and `spiderman_comic` will be matched as `:id`.
 
-## Path Helpers
+## URL and Path Helpers
 
-Along with deciding how it will dispatch an http request, the router can create Path and URL helpers that can be used in Controllers and Views.
+Along with deciding how it will dispatch an http request, the router can create URL and Path helpers that can be used in Controllers and Views.
 
 For example, if we add `as: 'product'` to the end of our route like so:
 
@@ -154,9 +154,10 @@ For example, if we add `as: 'product'` to the end of our route like so:
 get 'products/:id' => 'products#show', as: 'product'
 ```
 
-We will be able to use the following methods to generate a links to the product:
+We will be able to use the following methods to generate a link to the product:
 
 `product_path(55)` generates `/products/55`
+`product_url(55)` generates `http://localhost:3000/products/55`
 
 
 ## Displaying Routes
@@ -176,7 +177,9 @@ product  GET   /products/:id  products#show
 
 ## Resource Routing
 
-Shorthand for creating the standard routes is called Resourceful Routing:
+A shorthand technique for creating the standard CRUD* routes* is called Resourceful Routing.
+
+*CRUD = Create Read Update Delete
 
 ```ruby
 # config/routes.rb
@@ -221,7 +224,7 @@ When we think about data and how we manipulate it, we use the acronym CRUD to de
 - **U**pdate a record
 - **D**elete a record
 
-You'll hear developers say things like "Oh ya, it's just a basic **CRUD** app." (and one day, you'll say it too).
+You'll hear developers say things like "Oh ya, it's just a basic **CRUD** app." (and one day, you'll say this too).
 
 ## Seven Controller Methods - Overview
 
@@ -272,9 +275,9 @@ end
 
 Information about the http request will be accessible via the **Params Hash**.
 
-It will contain:
+The params hash contains:
 
-- form data from a `post` or `patch` request
+- form data from a `post` request
 - dynamic segment route matches in url. For example:
 
 ```ruby
@@ -285,7 +288,7 @@ would match the route:
 
 `http://localhost:3000/products/333`
 
-and would make `{ id: 333 }` accessible via the params hash:
+and would make `{ id: 333 }` accessible through the params hash:
 
 ```ruby
 params[:id]  # returns 333
