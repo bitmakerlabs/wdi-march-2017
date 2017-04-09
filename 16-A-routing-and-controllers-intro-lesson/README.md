@@ -1,17 +1,42 @@
-# Routing and Controllers - Introduction
+*Reminder for instructor: Start quick time*
 
-Today we'll take our first deep dive into Rails and learn all about Routing and Controllers in Rails.
+---
 
-## Agenda (5 min)
+# Routing and Controllers 
 
-After this lesson, you will know about:
+---
+
+# Introduction (10 min)
+
+Today we'll take our first deep dive into Rails and learn the fundamentals of Routing and Controllers in Rails.
+
+## Agenda
+
+- Recap & Context
+- Review concepts we'll be covering today
+- Deep dive into today's concepts
+- Wrap-up: resources, review, what's next
+- Lesson Exercise: Ipsum's Fairground
+
+
+## Recap & Context
+
+- Pull the latest files from the team lesson repo
+- Review [Ruby on Rails: Request-Response Cycle Diagram](Ruby on Rails - Request Response Cycle.pdf)
+- Questions about previous lesson.
+- How this lesson fits into the curriculum 
+
+
+## Concepts
+
+In this lesson, you'll learn about:
 
 ### Routing
 - Static Segments
 - Dynamic Segments
 - Path Helpers
 - How To Display Routes
-- Resource Routing
+- Resourceful Routing
 
 ### Controllers
 - CRUD
@@ -27,16 +52,16 @@ After this lesson, you will know about:
  - Update
  - Destroy
 
-### Wrap-up
-- Recap
-- Further Resources
-
 
 ## Overview
 
 When an http request hits a Rails app, the **Router** analyzes the request and decides which **Controller** it will direct it to.
 
 The **Controller** works with any **Models** necessary, and then renders the appropriate **View**.
+
+See [Ruby on Rails: Request-Response Cycle Diagram](Ruby on Rails).
+
+---
 
 # Routing (25 min)
 
@@ -94,10 +119,10 @@ Anything static (not prefixed with a **colon**) must be matched exactly for a ro
 In the following example:
 
 ```ruby
-get 'stores/:store_id/products/:id' => 'products#show'
+get '/products/:id' => 'products#show'
 ```
 
-`stores` and `products` are static segments.
+`products` is static segments.
 
 ## Dynamic Segments
 
@@ -106,15 +131,17 @@ Anything dynamic (prefixed with a **colon**) can match on *anything*:
 In the following example:
 
 ```ruby
-get 'stores/:store_id/products/:id' => 'products#show'
+get '/products/:id' => 'products#show'
 ```
 
-`:store_id` and `:id` are dynamic segments, and the following would be legitimate matches:
+`:id` is a dynamic segment, and the following would be legitimate matches:
 
 ```bash
-http://localhost:3000/stores/99/products/333
-http://localhost:3000/stores/silver_snail/products/spiderman_comic
+http://localhost:3000/products/333
+http://localhost:3000/products/spiderman_comic
 ```
+
+In the above cases, both `333` and `spiderman_comic` will be matched as `:id`.
 
 ## Path Helpers
 
@@ -181,6 +208,7 @@ root to: 'products#index'
 If your url is `localhost:3000`, then this would direct 
 `http://localhost:3000/` to the index method in the Products Controller.
 
+---
 
 # Controllers (35 min)
 
@@ -222,22 +250,18 @@ For example, a `ProductsController` will try to render the following:
 class ProductsController < ApplicationController
 
   def show
-
    # renders app/views/products/show.html.erb
   end
 
   def index
-
    # renders app/views/products/index.html.erb
   end
 
   def new
-
    # renders app/views/products/new.html.erb
   end
 
   def edit
-
    # renders app/views/products/edit.html.erb
   end
 
@@ -279,7 +303,7 @@ def index
 end
 ```
 
-Notice how `@products` is pluralized. This is because it's a collection (more than 1) of all the products.
+Notice how `@products` is pluralized. This is because it's a collection (and possibly more than one) of all the products.
 
 ### Show
 
@@ -291,7 +315,7 @@ def show
 end
 ```
 
-Notice how `@product` is singular. This is because it's an individual item.
+Notice how `@product` is singular. This is because it's an single (only one) item.
 
 ### New
 
@@ -312,9 +336,9 @@ For processing a **post** request to create a new item:
 ```ruby
 def create
   @product = Product.new
-  @product.name = params[:product][:name]
+  @product.name        = params[:product][:name]
   @product.description = params[:product][:description]
-  @product.price = params[:product][:price]
+  @product.price       = params[:product][:price]
   
   if @product.save
     flash.notice = 'Product successfully created!'
@@ -334,9 +358,7 @@ For retrieving a form for an existing item using a **get** request:
 
 ```ruby
 def edit
-
   @product = Product.find(params[:id])
-  
 end
 ```
 
@@ -349,8 +371,8 @@ For processing a **patch** request to update an existing item:
 ```ruby
 def update
 
-  @product = Product.find(params[:product][:id])
-  @product.name = params[:product][:name]
+  @product       = Product.find(params[:product][:id])
+  @product.name  = params[:product][:name]
   @product.price = params[:product][:price]
   
   if @product.save
@@ -379,8 +401,33 @@ def destroy
 end
 ```
 
-## Recap and Further Resources
+---
+
+# Wrap-up (10 min)
+
+## Further Resources
 
 #### Rails Guides: Rails Routing from the Outside In:<br><http://guides.rubyonrails.org/routing.html>
 
 #### Rails Guides: Action Controller Overview:<br><http://guides.rubyonrails.org/action_controller_overview.html>
+
+
+## Review
+
+- Review Concepts
+
+
+## What's next?
+
+- Views and Forms
+- Models and Database
+- Advanced Routing & Controller Concepts:
+  - Strong Params
+  - Nested Routing
+  - Filters
+
+---
+
+# Lesson Exercise (remaining time)
+
+Let's make **Ipsum's Fairground**, a *CRUD* application for promoting Ipsum's Rides.
