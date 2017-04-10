@@ -1,0 +1,9 @@
+<h1>Seany's Ride</h1>
+
+<% @rides.each do |ride| %>
+
+  <h2><%= ride.name %></h2>
+  <%= ride.tickets %> tickets
+  <%= link_to 'View Details', ride %>
+
+<% end %>
