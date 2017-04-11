@@ -1,0 +1,41 @@
+<h1>New Film</h1>
+
+<%#= form_tag films_path, method: :delete do %>
+  <%#= label_tag :title %>
+  <%#= date_field_tag :title %>
+<%# end %>
+
+<%= form_for @film do |form_builder| %>
+  <div class="field">
+    <%= form_builder.label :title %>
+    <%= form_builder.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form_builder.label :director %>
+    <%= form_builder.text_field :director %>
+  </div>
+
+  <div class="field">
+    <%= form_builder.label :year %>
+    <%= form_builder.number_field :year %>
+  </div>
+
+  <div class="field">
+    <%= form_builder.submit %>
+  </div>
+<% end %>
+
+<!--
+<form action="/films" method="post">
+
+  <label for="film-title">Title</label>
+  <input type="text" name="title" id="film-title" placeholder="e.g. Star Wars">
+
+  <input type="hidden" name="_method" value="patch">
+
+  <button type="submit">
+    <h1>Update film</h1>
+  </button>
+</form>
+-->

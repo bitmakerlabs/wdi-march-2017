@@ -1,0 +1,13 @@
+<h1>Films</h1>
+
+<%= link_to "New Film", new_film_path %>
+
+<% if @films.empty? %>
+  <p>No films yet!</p>
+<% else %>
+  <ul>
+    <% @films.each do |film| %>
+      <li><%= film.title %></li>
+    <% end %>
+  </ul>
+<% end %>
