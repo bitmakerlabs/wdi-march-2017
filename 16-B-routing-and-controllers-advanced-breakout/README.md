@@ -1,18 +1,36 @@
+*Reminder for instructor: Start quick time*
+
+---
+
 # Routing and Controllers - Advanced Concepts
 
-This lesson is meant to come after the Routing and Controllers - Introduction lesson, and introduces some more complex topics.
+This lesson introduces some more complex concepts related to Routing and Controllers.
+
 
 ## Agenda
 
-After this lesson, you will know about:
+- Recap & Context
+- Review concepts we'll be covering today
+- Deep dive into today's concepts
+- Wrap-up: resources, review, what's next
+
+
+## Recap & Context
+
+- Pull the latest files from the team lesson repo
+- How this lesson fits into the curriculum 
+
+
+## Concepts
 
 ### Routing
-- Multiple Static in a single URL
-- Multiple Dynamic Segments in a single URL
+- Multiple Static segments in a URL
+- Multiple Dynamic segments in a URL
 - Nested Resources
-- URL Helpers
+- Path & URL Helpers
 
 ### Controllers
+- Overriding default view template
 - Strong Params
 - Filters
 - Application Controller
@@ -60,7 +78,7 @@ We can nest resources to group collections with in collections. For example, if 
 
 ```ruby
 # config/routes.rb
-resources :products do
+resources :products
 ```
 
 That would create the seven basic routes for our product and the would be accessable with 
@@ -79,7 +97,7 @@ But let's say products varied from store to store, we might want to have each st
 # config/routes.rb
 
 resources :stores do
-    resources :products
+  resources :products
 end
 ```
 
@@ -96,7 +114,7 @@ which would them create store urls and product urls for each store url:
 /stores/33/products/99/edit
 ```
 
-## URL Helpers
+## Path & URL Helpers
 
 URL Helpers are just like Path helpers, except a full URL is created.
 
@@ -113,6 +131,43 @@ We will be able to use the following methods to generate a links to the product:
 
 `product_url(55)` generates `http://localhost:3000/products/55`
 
+When working routes that have more than one dynamic segments (like nested routes), we need to pass in an argument for each dynamic segment. These arguments need to be in an array. For example, if we're nesting `products` under `stores`, like so:
+
+```ruby
+# config/routes.rb
+
+resources :stores do
+  resources :products
+end
+```
+
+... this will produce routes that need to populate multiple dynamic segments:
+
+```
+$ rails routes
+            Prefix   Verb     URI Pattern                           Controller#Action
+            
+<-- snip -->
+  
+edit_store_product   GET      /stores/:store_id/products/:id/edit   products#edit
+     store_product   GET      /stores/:store_id/products/:id        products#show
+     
+<-- snip -->                     
+```                   
+
+We would then use the helpers like this:
+
+```ruby
+edit_store_product_path([@store, @product])
+store_product_path([@store, @product])
+
+# or
+
+edit_store_product_path([@product.store, @product])
+store_product_path([@product.store, @product])
+```
+
+
 ## Views
 
 We can override the default template to be rendered by explicitly specifying what template we'd like rendered. For example:
@@ -128,11 +183,10 @@ will attempt to render `app/views/products/my_special_template.html.erb`
 
 ## Params Hash
 
-### Control and Action available
+### Controller and Action available
 
-Less used information about the http request will be accessible via the **Params Hash**.
+Along with providing access to form and url data, the **params hash** also contained the current **controller** and **action**.
 
-For example, the current controller and action (method) can be obtained from the params hash.
 
 ### Multiple Dynamic Segements available
 
@@ -162,9 +216,9 @@ So instead of:
 ```ruby
   def create
     @product = Product.new
-    @product.name = params[:product][:name]
+    @product.name        = params[:product][:name]
     @product.description = params[:product][:description]
-    @product.price = params[:product][:price]
+    @product.price       = params[:product][:price]
 
     if @product.save
       redirect_to products_url

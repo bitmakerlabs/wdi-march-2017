@@ -143,9 +143,9 @@ http://localhost:3000/products/spiderman_comic
 
 In the above cases, both `333` and `spiderman_comic` will be matched as `:id`.
 
-## URL and Path Helpers
+## Path Helpers
 
-Along with deciding how it will dispatch an http request, the router can create URL and Path helpers that can be used in Controllers and Views.
+Along with deciding how it will dispatch an http request, the router can create Path helpers that can be used in Controllers and Views.
 
 For example, if we add `as: 'product'` to the end of our route like so:
 
@@ -154,10 +154,9 @@ For example, if we add `as: 'product'` to the end of our route like so:
 get 'products/:id' => 'products#show', as: 'product'
 ```
 
-We will be able to use the following methods to generate a link to the product:
+We will be able to use the following method to generate a link to the product:
 
 `product_path(55)` generates `/products/55`
-`product_url(55)` generates `http://localhost:3000/products/55`
 
 
 ## Displaying Routes
