@@ -4,3 +4,11 @@
   <p> <%= @picture.description %> </p>
   <%= image_tag @picture.url %>
 </section>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <p> On <%= comment.created_at %> <%= comment.name %> said: </p>
+      <p> <%= comment.message %> </p>
+    </li>
+  <% end %>
+</ul>

@@ -7,6 +7,7 @@
       <p class="picture-title"> <%= picture.title %> </p>
       <p class="description"> <%= picture.description %> </p>
       <div class="image-frame"><%= link_to image_tag(picture.url), picture_path(picture) %></div>
+      <p>Comments: <%= picture.comments.count %> </p>
     </section>
   <% end %>
 </section>
