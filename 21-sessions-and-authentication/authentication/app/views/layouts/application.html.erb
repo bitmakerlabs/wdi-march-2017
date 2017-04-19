@@ -10,8 +10,8 @@
 
   <body>
 
-    <% if session[:user_id] %>
-      <p>Hello user <%= session[:user_id] %></p>
+    <% if current_user %>
+      <p>Hello <%= current_user.email %></p>
     <% else %>
       <p><%= link_to 'Log In', new_sessions_path %></p>
     <% end %>
