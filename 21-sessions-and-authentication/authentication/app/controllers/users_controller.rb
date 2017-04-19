@@ -7,9 +7,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      flash[:notice] = 'Account successfully created!'
+
       # In a real app, redirect to dashboard_url or something
       redirect_to root_url
     else
+      # Use .now when no extra request follows!
+      flash.now[:error] = 'Sorry, try again!'
       render :new
     end
 
