@@ -32,4 +32,16 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_not @restaurant.available?(101)
   end
 
+  test 'restaurant is not available when it is full' do
+    FactoryGirl.create :reservation, restaurant: @restaurant, party_size: @restaurant.capacity
+    assert_not @restaurant.available?(1)
+  end
+
+  test 'restaurant is available when it is not full' do
+    FactoryGirl.create :reservation, restaurant: @restaurant, party_size: (@restaurant.capacity - 1)
+    assert @restaurant.available?(1)
+    FactoryGirl.create :reservation, restaurant: @restaurant, party_size: 1
+    assert_not @restaurant.available?(1)
+  end
+
 end
