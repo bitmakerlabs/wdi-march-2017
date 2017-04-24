@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  address: MyString
-  capacity: 1
+small_restaurant:
+  name: Burger Priest
+  address: 24 Yonge St
+  capacity: 25
 
-two:
-  name: MyString
-  address: MyString
-  capacity: 1
+big_restaurant:
+  name: Swiss Chalet
+  address: 123 King St
+  capacity: 100
