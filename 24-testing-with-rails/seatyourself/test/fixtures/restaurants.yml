@@ -3,9 +3,9 @@
 small_restaurant:
   name: Burger Priest
   address: 24 Yonge St
-  capacity: 25
+  capacity: <%= rand(5..25) %>
 
 big_restaurant:
   name: Swiss Chalet
   address: 123 King St
-  capacity: 100
+  capacity: <%= rand(26..100) %>
