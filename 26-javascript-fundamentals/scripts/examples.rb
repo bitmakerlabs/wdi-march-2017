@@ -164,3 +164,10 @@ case_statement
 named_function
 sum 5, 6
 function_with_parameters 'first param', 'second param'
+
+
+array.each do
+  # do this one time for each element in the array
+end
+
+# Array#each(&block)

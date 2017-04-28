@@ -13,3 +13,11 @@ function functionWithParameters(param1, param2) {
 var anonymous = function() {
   console.log("I'm anonymous");
 };
+
+functionWithParameters(anonymous, null);
+
+function printSomething() {
+  console.log("something");
+}
+
+window.setTimeout(printSomething, 5000);
