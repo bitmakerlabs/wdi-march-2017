@@ -23,4 +23,10 @@ $(document).ready(function() {
 
       console.log('link was clicked');
   });
+
+  $('#container').on('click', '.circle', function() {
+    // 'this' is the DOM element that received the event within the event handler
+    $(this).remove();
+    count--;
+  });
 });
