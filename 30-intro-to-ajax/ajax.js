@@ -7,7 +7,7 @@ $(function() {
       url: 'http://monsters-api.herokuapp.com/monsters',
       method: 'GET',
       dataType: 'html',
-      data: { limit: 2 },
+      // data: { limit: 2 },
     }).done(function(data) {
       console.log('.ajax done')
       $('body').append(data);
@@ -19,6 +19,27 @@ $(function() {
     });
 
     console.log('After .ajax');
+  });
+
+  $('#add-monster').on('click', function() {
+    $.ajax({
+      url: 'http://monsters-api.herokuapp.com/monsters',
+      method: 'POST',
+      // dataType:,
+      data: {
+        monster: {
+          name: 'Frankenstein',
+          home: 'Transylvania',
+          creepiness: 15
+        }
+      }
+    }).done(function() {
+      $('body').append('SUCCESS: Monster created');
+    }).fail(function() {
+      $('body').append('ERROR: Could not create monster');
+    }).always(function() {
+      $('body').append('Add operation complete');
+    });
   });
 
 });
