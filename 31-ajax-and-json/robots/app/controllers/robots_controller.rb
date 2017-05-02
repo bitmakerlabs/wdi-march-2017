@@ -11,11 +11,7 @@ class RobotsController < ApplicationController
     # @robot = Robot.find(params[:id])
 
     respond_to do |format|
-      format.html do
-        if request.xhr?
-          render layout: false
-        end
-      end
+      format.html
 
       format.json do
         render json: @robot, except: %i(created_at updated_at)
