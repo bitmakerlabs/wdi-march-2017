@@ -13,7 +13,8 @@ $(function() {
     url = $(this).attr('href');
     $.ajax({
       url: url,
-      method: 'GET'
+      method: 'GET',
+      dataType: 'json'
     }).done(function(data) {
       // Step 4: Update the page
       $('#robot-details').html(data);
