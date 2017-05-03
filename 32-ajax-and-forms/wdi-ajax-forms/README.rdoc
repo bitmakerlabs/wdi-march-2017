@@ -1,0 +1,16 @@
+== README
+
+This repo contains 4 branches, each of which showing an example of how we would respond to a particular type of AJAX request within Rails.
+
+The 4 branches are:
+
+* master (default non-AJAX form submission)
+
+* html (AJAX request with dataType set to html)
+
+* partial (AJAX request with dataType set to html, with Rails returning a partial instead of inline html)
+
+* json (AJAX request with dataType set to json)
+
+* script (showing Rails' remote: true option to handle AJAX)
+

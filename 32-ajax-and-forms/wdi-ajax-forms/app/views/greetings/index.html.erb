@@ -1,0 +1,23 @@
+<h1>Greetings</h1>
+
+<p>Timestamp: <%= Time.now.to_i %></p>
+
+<ul id="greeting-list">
+
+  <%= render @greetings %>
+
+  <%# @greetings.each do |greeting| %>
+    <%#= render greeting %>
+  <%# end %>
+
+</ul>
+
+<div>
+
+  <%= form_for @greeting,  html: {id: "greeting-form"} do |f| %>
+    <%= f.label :note, "Say something:" %>
+    <%= f.text_field :note %>
+    <%= f.submit :data => { disable_with: false } %>
+  <% end %>
+
+</div>
