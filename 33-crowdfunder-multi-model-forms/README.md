@@ -8,3 +8,36 @@ After this lesson, you'll know:
   * How to approach the Crowdfunder project
   * When you would need to save multiple models from the same form
   * How to set up a multi-model form
+
+
+
+# Features
+* Create a project
+* Pledge to a project
+  * Get updates on a project
+* Browse projects
+* Share and favourite projects
+* Cancel a pledge
+
+## Project
+* Title
+* Description
+* Goal ($)
+* Owner
+* End Date
+* ~~Reward 1~~
+* ~~Reward 2~~
+
+## Reward
+* Title
+* Value
+* Description
+
+## User
+
+
+## Pledge
+* Amount
+* Project
+* User
+* Reward?
