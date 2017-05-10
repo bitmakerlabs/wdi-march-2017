@@ -38,6 +38,27 @@
       <%= f.text_area :history, class: 'form-control'  %>
     </div>
 
+    <section>
+      <h2>Crew Members</h2>
+
+      <%= f.fields_for :crew_members, [CrewMember.new, CrewMember.new, CrewMember.new] do |crew_builder| %>
+        <div class="form-group">
+          <%= crew_builder.label :first_name %>
+          <%= crew_builder.text_field :first_name %>
+        </div>
+
+        <div class="form-group">
+          <%= crew_builder.label :last_name %>
+          <%= crew_builder.text_field :last_name %>
+        </div>
+
+        <div class="form-group">
+          <%= crew_builder.label :rank %>
+          <%= crew_builder.text_field :rank %>
+        </div>
+      <% end %>
+    </section>
+
     <%= f.submit 'Save', class: 'btn btn-success' %>
 
   <% end %>

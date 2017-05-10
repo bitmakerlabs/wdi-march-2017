@@ -9,6 +9,7 @@ class SpaceshipsController < ApplicationController
 
   def new
     @spaceship = Spaceship.new
+    # @spaceship.crew_members.build
   end
 
   def edit
@@ -17,6 +18,9 @@ class SpaceshipsController < ApplicationController
 
   def create
     @spaceship = Spaceship.new(spaceship_params)
+
+    # @spaceship.image_url = params[:spaceship][:image_url]
+    # @spaceship.crew_members_attributes = params[:spaceship][:crew_members_attributes]
 
     if @spaceship.save
       redirect_to spaceships_path, notice: 'Spaceship saved!'
@@ -43,6 +47,15 @@ class SpaceshipsController < ApplicationController
   private
 
   def spaceship_params
-    params.require(:spaceship).permit(:name, :universe, :max_speed, :image_url, :history)
+    params.require(:spaceship).permit(:name,
+                                      :universe,
+                                      :max_speed,
+                                      :image_url,
+                                      :history,
+                                      crew_members_attributes: [
+                                        :first_name,
+                                        :last_name,
+                                        :rank
+                                      ])
   end
 end
