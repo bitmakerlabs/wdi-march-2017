@@ -14,3 +14,22 @@
   <h2>Robot Details</h2>
   <div id="robot-details"></div>
 </aside>
+
+<script id="robot-template" type="text/x-handlebars-template">
+
+  <img src="http://robohash.org/{{ address }}">
+  <dl>
+    <dt>Name</dt>
+    <dd>{{ name }}</dd>
+
+    <dt>IP Address</dt>
+    <dd>{{ address }}</dd>
+
+    <dt>Lasers</dt>
+    <dd>{{ lasers }}</dd>
+
+    <dt>Japanese</dt>
+    <dd>{{ japanese }}</dd>
+  </dl>
+
+</script>

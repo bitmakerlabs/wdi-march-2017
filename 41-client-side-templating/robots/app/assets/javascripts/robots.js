@@ -18,25 +18,17 @@ $(function() {
     }).done(function(data) {
       // Step 4: Update the page
 
-      // .html only works with html snippets,
-      // not json
-      //$('#robot-details').html(data);
+      // 1. Fetch the HTML template string
+      var source = $("#robot-template").html();
 
-      var robotContainer = $('<div>');
+      // 2. Create a function that will replace placeholders given an object
+      var template = Handlebars.compile(source);
 
-      var profilePicSrc = 'http://robohash.org/' + data.address;
-      $('<img>').attr('src', profilePicSrc).appendTo(robotContainer);
+      // 3. Hydrate the template with the data provided by the server
+      var robotHtml = template(data);
 
-      $('<h2>').html(data.name).appendTo(robotContainer);
-
-      // <p>Price: <strong>$123.45</strong></p>
-      var priceString = '$' + (data.model_number / 100);
-      var strongTag   = $('<strong>').html(priceString);
-      var pTag        = $('<p>').html('Price: ').append(strongTag);
-
-      pTag.appendTo(robotContainer);
-
-      $('#robot-details').html(robotContainer);
+      // 4. Put the HTML into the page
+      $('#robot-details').html(robotHtml);
     });
 
   });
