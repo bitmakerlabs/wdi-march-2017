@@ -9,6 +9,15 @@ class RobotsController < ApplicationController
   def show
     # We don't need to load the robot here, it's done in the load_robot method
     # @robot = Robot.find(params[:id])
+
+    respond_to do |format|
+      format.html
+
+      format.json do
+        render json: @robot, except: %i(created_at updated_at)
+      end
+    end
+
   end
 
   private
