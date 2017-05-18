@@ -1,0 +1,2364 @@
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(431520392928471945);[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePages (20170517162658)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "content" character varying)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517162658"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 16:27:44.801405"], ["updated_at", "2017-05-17 16:27:44.801405"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(431520392928471945)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (188.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_development"[0m
+  [1m[35m (182.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_test"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "content" character varying)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 16:28:15.751736"], ["updated_at", "2017-05-17 16:28:15.751736"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "content" character varying)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-17 16:28:15.800301"], ["updated_at", "2017-05-17 16:28:15.800301"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(431520392928471945);[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePages (20170517162658)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "pages"[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170517162658"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(431520392928471945)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(431520392928471945);[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePages (20170517162658)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170517162658"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(431520392928471945)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "about"], ["title", "About"], ["content", "I recommend you don't fire until you're within 40,000 kilometers. You did exactly what you had to do. You considered all your options, you tried every alternative and then you made the hard choice. Your head is not an artifact! I'm afraid I still don't understand, sir. You enjoyed that. Some days you get the bear, and some days the bear gets you. Wouldn't that bring about chaos? Fate. It protects fools, little children, and ships named \"Enterprise.\" Mr. Worf, you do remember how to fire phasers? I am your worst nightmare! What? We're not at all alike! A lot of things can change in twelve years, Admiral. The look in your eyes, I recognize it. You used to have it for me.\n"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "contact"], ["title", "Contact"], ["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home.\n"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:46:48 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:4: syntax error, unexpected '<'
+eeze;@output_buffer.append=( <%= link_to 'New Page', new_pag
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:10: syntax error, unexpected '<'
+eeze;@output_buffer.append=( <%= link_to page.title, @page )
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:11: syntax error, unexpected '<'
+eeze;@output_buffer.append=( <%= 'Edit', [:edit, @page] );@o
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:12: syntax error, unexpected '<'
+eeze;@output_buffer.append=( <%= 'Delete', [:destroy, @page]
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/pages/index.html.erb:4: syntax error, unexpected '<'
+app/views/pages/index.html.erb:10: syntax error, unexpected '<'
+app/views/pages/index.html.erb:11: syntax error, unexpected '<'
+app/views/pages/index.html.erb:12: syntax error, unexpected '<'
+app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:08 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:4: syntax error, unexpected '<'
+eeze;@output_buffer.append=( <%= link_to 'New Page', new_pag
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+output_buffer.append=( 'Edit', [:edit, @page] );@output_buff
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+tput_buffer.append=( 'Delete', [:destroy, @page] );@output_b
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/pages/index.html.erb:4: syntax error, unexpected '<'
+app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:16 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+ 'New Page', new_pages_path, );@output_buffer.safe_append='
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+'.freeze;   Page.all.each do |page| 
+                            ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+output_buffer.append=( 'Edit', [:edit, @page] );@output_buff
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+tput_buffer.append=( 'Delete', [:destroy, @page] );@output_b
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:28 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+output_buffer.append=( 'Edit', [:edit, @page] );@output_buff
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+tput_buffer.append=( 'Delete', [:destroy, @page] );@output_b
+                              ^):
+  
+app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:39 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+tput_buffer.append=( 'Delete', [:destroy, @page] );@output_b
+                              ^):
+  
+app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:46 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 235ms (Views: 230.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:47:54 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+ 'New Page', new_pages_path, );@output_buffer.safe_append='
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+'.freeze;   Page.all.each do |page| 
+                            ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:48:12 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+o 'New Page', new_page_path, );@output_buffer.safe_append='
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+'.freeze;   Page.all.each do |page| 
+                            ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+'.freeze;   end 
+               ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-app/app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/pages/index.html.erb:4: syntax error, unexpected ')'
+app/views/pages/index.html.erb:8: syntax error, unexpected keyword_do_block, expecting ')'
+app/views/pages/index.html.erb:14: syntax error, unexpected keyword_end, expecting ')'
+app/views/pages/index.html.erb:20: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/pages/index.html.erb:22: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-17 12:48:21 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (181.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_development"[0m
+  [1m[35m (183.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_test"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 17:55:50.074732"], ["updated_at", "2017-05-18 17:55:50.074732"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 17:55:50.129597"], ["updated_at", "2017-05-18 17:55:50.129597"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "about"], ["title", "About"], ["content", "I recommend you don't fire until you're within 40,000 kilometers. You did exactly what you had to do. You considered all your options, you tried every alternative and then you made the hard choice. Your head is not an artifact! I'm afraid I still don't understand, sir. You enjoyed that. Some days you get the bear, and some days the bear gets you. Wouldn't that bring about chaos? Fate. It protects fools, little children, and ships named \"Enterprise.\" Mr. Worf, you do remember how to fire phasers? I am your worst nightmare! What? We're not at all alike! A lot of things can change in twelve years, Admiral. The look in your eyes, I recognize it. You used to have it for me.\n"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "Contact"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "contact"], ["title", "Contact"], ["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home.\n"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-05-18 13:57:28 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.6ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 199ms (Views: 187.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 13:58:24 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 29ms (Views: 20.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 13:58:30 -0400
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for PagesController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (190.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_development"[0m
+  [1m[35m (191.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_test"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:51:41.025068"], ["updated_at", "2017-05-18 18:51:41.025068"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:51:41.072225"], ["updated_at", "2017-05-18 18:51:41.072225"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "about"], ["title", "About"], ["content", "I recommend you don't fire until you're within 40,000 kilometers. You did exactly what you had to do. You considered all your options, you tried every alternative and then you made the hard choice. Your head is not an artifact! I'm afraid I still don't understand, sir. You enjoyed that. Some days you get the bear, and some days the bear gets you. Wouldn't that bring about chaos? Fate. It protects fools, little children, and ships named \"Enterprise.\" Mr. Worf, you do remember how to fire phasers? I am your worst nightmare! What? We're not at all alike! A lot of things can change in twelve years, Admiral. The look in your eyes, I recognize it. You used to have it for me.\n"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "Contact"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "contact"], ["title", "Contact"], ["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home.\n"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (183.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_development"[0m
+  [1m[35m (184.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_test"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:55:00.100465"], ["updated_at", "2017-05-18 18:55:00.100465"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:55:00.152680"], ["updated_at", "2017-05-18 18:55:00.152680"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "about"], ["title", "About"], ["content", "I recommend you don't fire until you're within 40,000 kilometers. You did exactly what you had to do. You considered all your options, you tried every alternative and then you made the hard choice. Your head is not an artifact! I'm afraid I still don't understand, sir. You enjoyed that. Some days you get the bear, and some days the bear gets you. Wouldn't that bring about chaos? Fate. It protects fools, little children, and ships named \"Enterprise.\" Mr. Worf, you do remember how to fire phasers? I am your worst nightmare! What? We're not at all alike! A lot of things can change in twelve years, Admiral. The look in your eyes, I recognize it. You used to have it for me.\n"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "Contact"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "contact"], ["title", "Contact"], ["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home.\n"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (190.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_development"[0m
+  [1m[35m (190.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tiny_cms_test"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:55:36.516753"], ["updated_at", "2017-05-18 18:55:36.516753"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pages" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "pages" ("id" bigserial primary key, "slug" character varying, "title" character varying, "content" character varying)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170517162658)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-18 18:55:36.566438"], ["updated_at", "2017-05-18 18:55:36.566438"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "about"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "About"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "about"], ["title", "About"], ["content", "I recommend you don't fire until you're within 40,000 kilometers. You did exactly what you had to do. You considered all your options, you tried every alternative and then you made the hard choice. Your head is not an artifact! I'm afraid I still don't understand, sir. You enjoyed that. Some days you get the bear, and some days the bear gets you. Wouldn't that bring about chaos? Fate. It protects fools, little children, and ships named \"Enterprise.\" Mr. Worf, you do remember how to fire phasers? I am your worst nightmare! What? We're not at all alike! A lot of things can change in twelve years, Admiral. The look in your eyes, I recognize it. You used to have it for me.\n"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "Contact"], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "contact"], ["title", "Contact"], ["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home.\n"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:14:04 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (1.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 260ms (Views: 236.1ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:14:32 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+output_buffer.append=( 'Edit', [:edit, @page] );@output_buff
+                              ^):
+  
+app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:15:02 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+output_buffer.append=( 'Edit', edit_page_path(@page) );@outp
+                              ^):
+  
+app/views/pages/index.html.erb:11: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:15:11 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (3.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pages", :id=>nil}, missing required keys: [:id]):
+     8:   <% Page.all.each do |page| %>
+     9:     <li>
+    10:       <%= link_to page.title, @page %> |
+    11:       <%= link_to 'Edit', edit_page_path(@page) %> |
+    12:       <%#= 'Delete', [:destroy, @page] %>
+    13:     </li>
+    14:   <% end %>
+  
+app/views/pages/index.html.erb:11:in `block in _app_views_pages_index_html_erb___4087797264194940980_70163599924740'
+app/views/pages/index.html.erb:8:in `_app_views_pages_index_html_erb___4087797264194940980_70163599924740'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:16:10 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"pages", :id=>nil}, missing required keys: [:id]):
+     8:   <% Page.all.each do |page| %>
+     9:     <li>
+    10:       <%= link_to page.title, @page %> |
+    11:       <%= link_to 'Edit', edit_page_path(@page) %> |
+    12:       <%#= 'Delete', [:destroy, @page] %>
+    13:     </li>
+    14:   <% end %>
+  
+app/views/pages/index.html.erb:11:in `block in _app_views_pages_index_html_erb___4087797264194940980_70163621678700'
+app/views/pages/index.html.erb:8:in `_app_views_pages_index_html_erb___4087797264194940980_70163621678700'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:16:39 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:16:45 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+tput_buffer.append=( 'Delete', [:destroy, @page] );@output_b
+                              ^):
+  
+app/views/pages/index.html.erb:12: syntax error, unexpected ',', expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:18:59 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (74.3ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `delete_page_path' for #<#<Class:0x007fa07b7da690>:0x007fa07f89a1f8>):
+     9:     <li>
+    10:       <%= link_to page.title, page %> |
+    11:       <%= link_to 'Edit', edit_page_path(page) %> |
+    12:       <%= link_to 'Delete',  delete_page_path(page), method: :delete, data: { confirm: 'Are you sure?' } %>
+    13:     </li>
+    14:   <% end %>
+    15: </ul>
+  
+app/views/pages/index.html.erb:12:in `block in _app_views_pages_index_html_erb___4087797264194940980_70163655612120'
+app/views/pages/index.html.erb:8:in `_app_views_pages_index_html_erb___4087797264194940980_70163655612120'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:19:16 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/pages/1" for 127.0.0.1 at 2017-05-18 16:19:21 -0400
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for PagesController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started DELETE "/pages/1" for 127.0.0.1 at 2017-05-18 16:23:47 -0400
+Processing by PagesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2+O4gFDKvxokIWu/mtBVVn5Ok/f4roLRuByh39KSQkyR3NznFj5wdMMHIprGrGouXu8XNF1Xcmg4iBhN0K/gLA==", "id"=>"1"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "pages" WHERE "pages"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 20ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:23:47 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:23:51 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 61ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (PagesController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:24:38 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:25:31 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:25:36 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:25:37 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:26:03 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:16: syntax error, unexpected ')'
+nk_to 'Home', root_path if   );@output_buffer.safe_append='
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:16: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+Started PUT "/__web_console/repl_sessions/974cf07332d29861c3a815cc6e9b8ca9" for 127.0.0.1 at 2017-05-18 16:26:07 -0400
+Started PUT "/__web_console/repl_sessions/974cf07332d29861c3a815cc6e9b8ca9" for 127.0.0.1 at 2017-05-18 16:26:10 -0400
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:26:19 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:16: syntax error, unexpected ')'
+nk_to 'Home', root_path if   );@output_buffer.safe_append='
+                              ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:16: syntax error, unexpected ')'
+app/views/layouts/application.html.erb:22: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/layouts/application.html.erb:24: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:26:25 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (hi):
+    12:     <%= yield %>
+    13:     <br>
+    14:     <footer>
+    15:     <% raise 'hi' %>
+    16:       <%= link_to 'Home', root_path    %>
+    17:     </footer>
+    18:   </body>
+  
+app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb__2293080781843393773_70163601117600'
+Started PUT "/__web_console/repl_sessions/c0dfc9878391b176b74a09959266268e" for 127.0.0.1 at 2017-05-18 16:26:28 -0400
+Started PUT "/__web_console/repl_sessions/c0dfc9878391b176b74a09959266268e" for 127.0.0.1 at 2017-05-18 16:26:28 -0400
+Started PUT "/__web_console/repl_sessions/c0dfc9878391b176b74a09959266268e" for 127.0.0.1 at 2017-05-18 16:26:30 -0400
+Started PUT "/__web_console/repl_sessions/c0dfc9878391b176b74a09959266268e" for 127.0.0.1 at 2017-05-18 16:26:31 -0400
+Started PUT "/__web_console/repl_sessions/c0dfc9878391b176b74a09959266268e" for 127.0.0.1 at 2017-05-18 16:26:35 -0400
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:26:48 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:26:52 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 17.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:26:54 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:29:14 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 33ms (Views: 28.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:29:17 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `to_i?' for "2":String
+Did you mean?  to_i
+               to_f
+               to_c
+               to_s
+               to_r
+               to_d):
+  
+app/controllers/pages_controller.rb:8:in `show'
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:29:42 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `to_i?' for "2":String
+Did you mean?  to_i
+               to_f
+               to_c
+               to_s
+               to_r
+               to_d):
+  
+app/controllers/pages_controller.rb:8:in `show'
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:29:48 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 14.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:29:54 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find_by_name' for Page(id: integer, slug: string, title: string, content: string):Class
+Did you mean?  find_by):
+  
+app/controllers/pages_controller.rb:9:in `show'
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:30:02 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `find_by_name' for Page(id: integer, slug: string, title: string, content: string):Class
+Did you mean?  find_by):
+  
+app/controllers/pages_controller.rb:9:in `show'
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:30:09 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 7ms (ActiveRecord: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Page with 'id'=contact):
+  
+app/controllers/pages_controller.rb:9:in `show'
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:30:31 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Page with 'id'=contact):
+  
+app/controllers/pages_controller.rb:9:in `show'
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:30:39 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 14.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:30:41 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:30:43 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:30:45 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:30:52 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/contact" for 127.0.0.1 at 2017-05-18 16:30:55 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/contact"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/contact" for 127.0.0.1 at 2017-05-18 16:31:04 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/contact"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:31:11 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:31:12 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/contact" for 127.0.0.1 at 2017-05-18 16:31:15 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"contact"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "contact"], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:31:16 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2/edit" for 127.0.0.1 at 2017-05-18 16:31:19 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 61ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (PagesController#edit is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:31:23 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:31:25 -0400
+Processing by PagesController#new as HTML
+Completed 406 Not Acceptable in 62ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (PagesController#new is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:32:32 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:32:37 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o1XSWVjGXctJAQBAajk4iYJFTlazOmbo32ObjNpzaWDparY+HjKSpa4nSWU2RQfxouTKlRbDllFf9yIe2E7LAA==", "page"=>{"slug"=>"seany", "title"=>"pie", "content"=>"pie"}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "seany"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "pie"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "seany"], ["title", "pie"], ["content", "pie"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 11ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:32:37 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/seany" for 127.0.0.1 at 2017-05-18 16:32:40 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"seany"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "seany"], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:32:43 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:33:05 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:33:08 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:33:13 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oWXPbfsc9jVOJObTcAVQY8my0FE720UrmRXraB6zvcLCZdm8T1Gns9CGI0VtbxIdo0axBCDD37pWGd0Ee5lzAA==", "page"=>{"slug"=>"seany", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "pages" SET "title" = $1, "content" = $2 WHERE "pages"."id" = $3[0m  [["title", "piet"], ["content", "piec"], ["id", 3]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages/3
+Completed 302 Found in 12ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:33:13 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:33:15 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:34:29 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/sean/bitmaker/lessons/sean-prepared/deployment/tiny-cms/app/models/page.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+dates_format_of     :slug with: /\A[a-z]+\z/
+                              ^):
+  
+app/models/page.rb:4: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/pages/index.html.erb:8:in `_app_views_pages_index_html_erb___4087797264194940980_70163608261940'
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:34:35 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:34:37 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:34:40 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qgspm+qYjpkg7RO7d/T70UY/mbEgPPx/IVaEfto9fVshCz9KXtXfH75P1i1qnrmvLMv45DskZu7uWrISvxezmQ==", "page"=>{"slug"=>"seany jk", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany jk"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 18.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:35:28 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:35:32 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:35:33 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:35:36 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aLBFCFpPVvQxL4MMLHQgnFkMnvnH7ZfMT4rOyROy5TkLsFPZ7gIHcq+NRpoxHmLiM/j/rNz1DV2Ahvildpgr+w==", "page"=>{"slug"=>"seany kjk", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany kjk"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:36:06 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6cJfypuMc+ewgpOi7wv2wRrEQBIKl9LVy1+brvaasLCj/Tut3Xi8iVek2oezd8m5OmXE0a9uImxLyyI89KcS0A==", "page"=>{"slug"=>"seany kjk", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany kjk"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 30ms (Views: 16.1ms | ActiveRecord: 3.3ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:36:07 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xTAYGlOB/LtDgkoyaFmXJki+Y3FsUJVXgGfbluzcgU2PD3x9FXUz1aSkAxc0JaheaB/nssmpZe4A82IE7uEjLQ==", "page"=>{"slug"=>"seany kjk", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany kjk"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:36:27 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (#<ActionDispatch::Flash::FlashHash:0x007fa0787e4ad0 @discard=#<Set: {}>, @flashes={}, @now=nil>):
+     9:   </head>
+    10: 
+    11:   <body>
+    12:     <% raise flash.inspect %>
+    13:     <% flash.each do |name, msg| -%>
+    14:       <%= content_tag :div, msg, class: name %>
+    15:     <% end -%>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb__2293080781843393773_70163606797940'
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:36:41 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:36:42 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:36:44 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:36:50 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s77JiuIesWSFTKxm8sLGy8d4rNTcVM+KMIiRyPKiDy3Qvt9bVlPg4hvuafDvqIS1rYzNgcdMVRv/hKekl4jB7w==", "page"=>{"slug"=>"seany nnn", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (#<ActionDispatch::Flash::FlashHash:0x007fa078a546a8 @discard=#<Set: {}>, @flashes={}, @now=nil>):
+     9:   </head>
+    10: 
+    11:   <body>
+    12:     <% raise flash.inspect %>
+    13:     <% flash.each do |name, msg| -%>
+    14:       <%= content_tag :div, msg, class: name %>
+    15:     <% end -%>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb__2293080781843393773_70163605957460'
+app/controllers/pages_controller.rb:45:in `update'
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:37:29 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s77JiuIesWSFTKxm8sLGy8d4rNTcVM+KMIiRyPKiDy3Qvt9bVlPg4hvuafDvqIS1rYzNgcdMVRv/hKekl4jB7w==", "page"=>{"slug"=>"seany nnn", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 3.3ms)
+
+
+  
+ActionView::Template::Error (#<ActionDispatch::Flash::FlashHash:0x007fa07b5529e0 @discard=#<Set: {"error"}>, @flashes={"error"=>"Could not save"}, @now=#<ActionDispatch::Flash::FlashNow:0x007fa07b551720 @flash=#<ActionDispatch::Flash::FlashHash:0x007fa07b5529e0 ...>>>):
+     9:   </head>
+    10: 
+    11:   <body>
+    12:     <% raise flash.inspect %>
+    13:     <% flash.each do |name, msg| -%>
+    14:       <%= content_tag :div, msg, class: name %>
+    15:     <% end -%>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb__2293080781843393773_70163620220580'
+app/controllers/pages_controller.rb:46:in `update'
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:37:49 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s77JiuIesWSFTKxm8sLGy8d4rNTcVM+KMIiRyPKiDy3Qvt9bVlPg4hvuafDvqIS1rYzNgcdMVRv/hKekl4jB7w==", "page"=>{"slug"=>"seany nnn", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 22.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:38:21 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:38:25 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2/edit" for 127.0.0.1 at 2017-05-18 16:38:26 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 24ms (Views: 20.6ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/pages/2" for 127.0.0.1 at 2017-05-18 16:38:30 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZV/pPvl842lMSGHd9D/C3hrSqx23nTuN9u1q55VM+jNegneKQNMcrCTE+a0KBFxdWmYTz5/Ssq7Jg9hOX6ldtg==", "page"=>{"slug"=>"contact nn", "title"=>"Contact", "content"=>"Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home."}, "commit"=>"Update Page", "id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "contact nn"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "Contact"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 25ms (Views: 18.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:38:49 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:38:51 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:38:52 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:38:57 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Nl6aswDpyp9+FwaupBdFHIlP2unmL48qk6ARlPrNPahVXoxitKSbGeC1wzi5fQdi47u7vP03FbtcrCf4n+fzag==", "page"=>{"slug"=>"seany jjj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany jjj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:39:13 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:39:15 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:39:16 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:39:17 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hAs1i/deBctqdiTNjJkkIYGPMsWk1KV9JlpKoIDHgz7nCyNaQxNUTfTU4VuR82Zf63tTkL/MP+zpVnzM5e1N/A==", "page"=>{"slug"=>"seany", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages/3
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:39:17 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:39:19 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2/edit" for 127.0.0.1 at 2017-05-18 16:39:20 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 26ms (Views: 23.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/2" for 127.0.0.1 at 2017-05-18 16:39:24 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4hpyVPf1kCeSSR+j+3SR4FcudM+hf8NBruZ2piBxX/fZx+zgTlpv4vrFh9MFTw9jF5rMHYkwSmKRiMQP6pT4cg==", "page"=>{"slug"=>"contactmmmm . m", "title"=>"Contact", "content"=>"Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home."}, "commit"=>"Update Page", "id"=>"2"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "contactmmmm . m"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "Contact"], ["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 24ms (Views: 19.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:40:37 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 16.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:40:39 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 37ms (Views: 32.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:40:40 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 34ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:40:42 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ntJSEHCx40blV6QcSBWhBXJSTFdEofmAIaMmJkQq7ED90kTBxPyywHv1YYpVf+N7GKYtAl+5YxHurxBKIQAigg==", "page"=>{"slug"=>"seany nnn", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 31ms (Views: 25.5ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:40:51 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TYDaErO7sF28qTDFqt358Ot2Wchi7fiABaDrpfeB/nMHv7519U9/M1uPeeD2ocaIy9fdC8cUCDmFNFI39bxcEw==", "page"=>{"slug"=>"seany nnn jjj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn jjj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:40:56 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BN4q8i4m2kto7K2bHXzt6UoUIeKCXJpolU+gfd0j1+yLBzMjkxUB8qF+5MwCczPhYnURC/wgtAiwYcT9UktPw==", "page"=>{"slug"=>"seany nnn jjj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn jjj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error ("error"):
+    11:   <body>
+    12: 
+    13:     <% flash.each do |name, msg| -%>
+    14:     <% raise name.inspect %>
+    15:       <%= content_tag :div, msg, class: 'error' %>
+    16:     <% end -%>
+    17: 
+  
+app/views/layouts/application.html.erb:14:in `block in _app_views_layouts_application_html_erb__2293080781843393773_70163608043900'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__2293080781843393773_70163608043900'
+app/controllers/pages_controller.rb:47:in `update'
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:41:18 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BN4q8i4m2kto7K2bHXzt6UoUIeKCXJpolU+gfd0j1+yLBzMjkxUB8qF+5MwCczPhYnURC/wgtAiwYcT9UktPw==", "page"=>{"slug"=>"seany nnn jjj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn jjj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:41:21 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NkKB/J4q3raECjQfic/ZGEu47z4wMDE4UDLzJ5F50FF8feWb2N4R2GMsfTrVs+Zgaxlr/ZXJwYHQpkq1k0RyMQ==", "page"=>{"slug"=>"seany nnn jjj hhhh'", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn jjj hhhh'"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:41:24 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"azU0j6Y7rLdkHJ3YicTvLeIytZOSkK6e0ctiHciToGchClDo4M9j2YM61P3VuNBVwpMxUDdpXidRX9uPyq4CBw==", "page"=>{"slug"=>"seany nnn jjj hhhh'jj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "seany nnn jjj hhhh'jj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:41:28 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kZ/IwbYeedGnMmGg72BvXIziIkBhpQAuQodFSHO2ebjboKym8Oq2v0AUKIWzHFAkrEOmg8Rc8JfCE/zacYvb2A==", "page"=>{"slug"=>"sean", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "sean"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "pages" SET "slug" = $1 WHERE "pages"."id" = $2[0m  [["slug", "sean"], ["id", 3]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages/3
+Completed 302 Found in 10ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:41:28 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:43:04 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 31.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:43:06 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/2/edit" for 127.0.0.1 at 2017-05-18 16:43:07 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/2" for 127.0.0.1 at 2017-05-18 16:43:09 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5JN9RIK/DLl9MOPqCExgnMlYJ05j8xRW0Q680i0xjWLfTuPwOxDzfBW8e5r2d/4fieyfnEu8nXXuYA5759Qq5w==", "page"=>{"slug"=>"contact", "title"=>"Contact", "content"=>"Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home."}, "commit"=>"Update Page", "id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "contact"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "Contact"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "pages" SET "content" = $1 WHERE "pages"."id" = $2[0m  [["content", "Introvert jazz cafes having a few beers self-deprecating humor. Degree in philosophy Vampire Weekend introvert self-deprecating humor really hoppy beers, grilling tacos really hoppy beers medical school I'm looking for. Family is very important to me bikes trying this for the first time Breaking Bad I'm really good at bored at home."], ["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages/2
+Completed 302 Found in 6ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/pages/2" for 127.0.0.1 at 2017-05-18 16:43:09 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 14.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:43:10 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:43:12 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:43:14 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2OATFFwfOpNBeOpDArAcCY+/jRgbSBXv+1E81rV/AT0RRZ1fa3Vsn9LT1TQoqEj0jQ2zSVn+Dp+ihuN72mSzSQ==", "page"=>{"slug"=>"", "title"=>"", "content"=>""}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", ""], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", ""], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:43:17 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IRWpbBQq/Sy5SXsSxdnMivdsUjnjy4UAEkNQ48Baq21rKs0LUt4yQl5vMjeZpfPy183W+kYydbmS1+lxwmcJDQ==", "page"=>{"slug"=>"jj", "title"=>"jj", "content"=>"jj"}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "jj"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "jj"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "jj"], ["title", "jj"], ["content", "jj"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 9ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:43:17 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:43:35 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 34ms (Views: 22.6ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:43:40 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YOPGqD1SlDuDK4vJxFif03TYGQRAsSxbS63fFxC+eISpRkjjCjjCNxCAtL7uQMsudmonVQIHNysSegC6f6XK8A==", "page"=>{"slug"=>"jjj", "title"=>"jjj", "content"=>"jjj"}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "jjj"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "jjj"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "jjj"], ["title", "jjj"], ["content", "jjj"]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:43:40 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:45:01 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:45:03 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:45:10 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EL3yrm1qNEQUKf6mDCMThuAn4elmNP0oaT7xU9jfttHZGHzlWgBiSIeCwdEmO0d74pXfuCSC5lgw6S7+t8QEpQ==", "page"=>{"slug"=>"jjj hh", "title"=>"hh", "content"=>"iiuii "}, "commit"=>"Create Page"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "jjj hh"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "hh"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:46:05 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:46:08 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:46:11 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lfypg8lRw3o2sTnQFyb+rNn3T3jhhl62huOh1ERAbJhcWSfI/juVdqUaBqc9PqpR20VxKaMwRcbfNH55K1ve7A==", "page"=>{"slug"=>"jkjk", "title"=>"kjkj", "content"=>""}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "jkjk"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "kjkj"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "jkjk"], ["title", "kjkj"], ["content", ""]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 9ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:46:11 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/3/edit" for 127.0.0.1 at 2017-05-18 16:46:13 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/3" for 127.0.0.1 at 2017-05-18 16:46:15 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oaivrARzOUArPOGnnVzV1TVf6fOe0R4cr7jG6fz2HFjCqLl9sD5oxrWeJDGANperX6uIpoXJhI1gtPCFmdzSmg==", "page"=>{"slug"=>"sean jj", "title"=>"piet", "content"=>"piec"}, "commit"=>"Update Page", "id"=>"3"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "sean jj"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "piet"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pages/3" for 127.0.0.1 at 2017-05-18 16:47:00 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPage Load (0.3ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering pages/show.html.erb within layouts/application
+  Rendered pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:47:02 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:47:04 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:47:05 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jrT6jUCwcBn1nnhOnMhTeVGap7rWj75bYcJL6WH/1vdHEXTGd9omFWY1Rzm20AeEUyiZ65Q5pSs4FZREDuRkgw==", "page"=>{"slug"=>"", "title"=>"", "content"=>""}, "commit"=>"Create Page"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", ""], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 23ms (Views: 18.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:47:13 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:47:15 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:47:16 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+sP1zEtyIMNVPLDwYbub2bbVHaw9GeUypL4q0RhEg6wzZnuHfBh2z8aXj4dLo88ktGcj/X+v/kL9afV8d18x2A==", "page"=>{"slug"=>"", "title"=>"", "content"=>""}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", ""], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:47:23 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4aiQZkx0wNd4hgvhc/qHY2IW58kLoJDeqh0JsL/dPWKrl/QBCoAPuZ+gQsQvhrgbQrdjCq5ZYGcqibAiveCfAg==", "page"=>{"slug"=>"mnmn", "title"=>"nmn", "content"=>"nmnm"}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "mnmn"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", "nmn"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "mnmn"], ["title", "nmn"], ["content", "nmnm"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 9ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:47:23 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/4/edit" for 127.0.0.1 at 2017-05-18 16:47:25 -0400
+Processing by PagesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/pages/4" for 127.0.0.1 at 2017-05-18 16:47:27 -0400
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"triEfHBtmwHQCvnoXEuD+JFYDJQvcxkgkue29EibxyVo84RAku4nxDwkW2hh/az8IBoL0wSVXxzIBQz7T4NDOw==", "page"=>{"slug"=>"jj jj", "title"=>"jj", "content"=>"jj"}, "commit"=>"Update Page", "id"=>"4"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["slug", "jj jj"], ["id", 4], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 AND ("pages"."id" != $2) LIMIT $3[0m  [["title", "jj"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering pages/edit.html.erb within layouts/application
+  Rendered pages/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:47:30 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pages/new" for 127.0.0.1 at 2017-05-18 16:47:33 -0400
+Processing by PagesController#new as HTML
+  Rendering pages/new.html.erb within layouts/application
+  Rendered pages/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages" for 127.0.0.1 at 2017-05-18 16:47:35 -0400
+Processing by PagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1b+lTXPJATHx+7aOKv7l+iusW0ENMWokgJ45ZMbao2IcGisGRKNXPWJQifkA5rEHKR5lEE+HcVTZSebJqcERFg==", "page"=>{"slug"=>"n", "title"=>"", "content"=>""}, "commit"=>"Create Page"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."slug" = $1 LIMIT $2[0m  [["slug", "n"], ["LIMIT", 1]]
+  [1m[36mPage Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "pages" WHERE "pages"."title" = $1 LIMIT $2[0m  [["title", ""], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pages" ("slug", "title", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["slug", "n"], ["title", ""], ["content", ""]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 9ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:47:35 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:47:39 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/pages/8" for 127.0.0.1 at 2017-05-18 16:47:42 -0400
+Processing by PagesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1oPhi4G6K82AUZIV5LTDTxaVJ3s1fmZU0/2UVrdrJdacvIXsx07ko2d32zC4yPw3NjSjuJCHlu1TaS3EtVaHtg==", "id"=>"8"}
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "pages" WHERE "pages"."id" = $1[0m  [["id", 8]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 5ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:47:42 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/pages/7" for 127.0.0.1 at 2017-05-18 16:47:59 -0400
+Processing by PagesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BZcqWnvh7UFW9LqG51Fr9gOjJVQnyBg0kYZ8xDqhJG1PqE49PRUiL7HS86O7LVSOIwKhl4Ix6I0REsVWOJyGDQ==", "id"=>"7"}
+  [1m[36mPage Load (0.1ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "pages" WHERE "pages"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pages
+Completed 302 Found in 13ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/pages" for 127.0.0.1 at 2017-05-18 16:47:59 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.4ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-18 16:48:01 -0400
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT "pages".* FROM "pages"[0m
+  Rendered pages/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.2ms)
+
+

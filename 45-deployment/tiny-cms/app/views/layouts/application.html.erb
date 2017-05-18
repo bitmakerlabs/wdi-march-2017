@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tiny CMS</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% flash.each do |name, msg| -%>
+      <% if name == 'error' %>
+        <div class='error flash'>
+          <%= msg %>:
+          <ul>
+          <% @page.errors.full_messages.each do |error_msg| %>
+            <li><%= error_msg %></li>
+          <% end -%>
+          </ul>
+        </div>
+      <% else -%>
+        <%= content_tag :div, msg, class: 'notice flash' %>
+      <% end -%>
+    <% end -%>
+
+    <%= yield %>
+    <br>
+    <footer>
+      <%= link_to 'Home', root_path unless request.path == '/'   %>
+    </footer>
+  </body>
+</html>
