@@ -589,10 +589,22 @@ Let's go through the steps now to put a sample application I've created called `
 
 ## Setup Tiny CMS on your computer
 
-Go into the Tiny CMS folders
+Go into the Lesson folder
 
 ```
-cd 45-deployment/tiny-cms
+cd 45-deployment
+```
+
+Move the Tiny CMS app to your Desktop
+
+```
+mv tiny-cms ~/Desktop
+```
+
+Change into the Tiny CMS app on your Desktop
+
+```
+cd ~/Desktop/tiny-cms
 ```
 
 Take a look at the files:
@@ -600,6 +612,8 @@ Take a look at the files:
 ```
 ls
 ```
+
+It should look like a regular rails app.
 
 Run bundle:
 
@@ -628,9 +642,10 @@ rails server
 Go to the website and test it out:
 [http://localhost:3000/](http://localhost:3000/)
 
-Commit any changes:
+Create a git repo out of it and commit any changes:
 
 ```
+git init
 git add --all
 git commit -m 'making it work on my local dev machine'
 ```
@@ -653,7 +668,7 @@ heroku buildpacks:set heroku/ruby
 Push the code to heroku:
 
 ```
-git push heroku
+git push --set-upstream heroku master
 ```
 
 Setup the database:
