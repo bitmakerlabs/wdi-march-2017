@@ -7,7 +7,7 @@
 
 - Networks
 - Domain Names
-- Hosting Options 
+- Hosting Options
 - Heroku
 
 <br>
@@ -31,7 +31,7 @@ Most LANs we use are contained within a single building:
 ### Internet
 > a global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols
 
-![](lans-and-the-internet.png)
+![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/lans-and-the-internet.png)
 
 ## OSI Model
 
@@ -41,11 +41,11 @@ The OSI Model is a conceptual model, like MVC. It's used when communicating and 
 
 ### OSI Model Functionality
 
-![](osi-model.png)
+![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/osi-model.png)
 
 ### OSI Model In Relation To The Internet
 
-![](osi-model-in-relation-to-the-internet.png)
+![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/osi-model-in-relation-to-the-internet.png)
 
 ## IP
 
@@ -53,7 +53,7 @@ The OSI Model is a conceptual model, like MVC. It's used when communicating and 
 
 IP is used to get data from point A to B.
 
-The two versions of IP in use today are IPv4 and IPv6. 
+The two versions of IP in use today are IPv4 and IPv6.
 
 
 ### IPv4
@@ -62,7 +62,7 @@ You'll likely be most familiar with the IPv4 addressing scheme.
 
 IPv4 addresses are made up of four *octets*:
 
-`0-255` `.` `0-255` `.` `0-255` `.` `0-255` 
+`0-255` `.` `0-255` `.` `0-255` `.` `0-255`
 
 and range from :
 
@@ -178,7 +178,7 @@ It's likely we all have the same public IP address. This is because we're all on
 
 #### Localhost
 
-No doubt you've seen `127.0.0.1`. This is because `127.x.x.x` IPs are reserved for use by your computer. You can think of `127.0.0.1` as the network equalvalent of `self` in Ruby and `this` in JavaSccript. 
+No doubt you've seen `127.0.0.1`. This is because `127.x.x.x` IPs are reserved for use by your computer. You can think of `127.0.0.1` as the network equalvalent of `self` in Ruby and `this` in JavaSccript.
 
 When you access `127.0.0.1`, you're saying "I want my computer to communicate with itself".
 
@@ -201,13 +201,13 @@ If your computer uses a private IP address like `10.0.1.201`, how do web servers
 
 The router connected to the Internet, converts your IP address to the public IP, and when the server responds, it translates it back to the private IP address.
 
-![](nat.jpg)
+![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/nat.jpg)
 
 <br>
 ---
 # Domain Names
 
-> A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet. 
+> A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.
 
 In other words, a domain name is a *place* on the Internet and is usually something one human can remember and communicate easily to another human. Without domain names, we'd have to tell each other *"Hey, I'm at IP address 206.129.54.3. Can you remember that?""*
 
@@ -283,7 +283,7 @@ smallcity.ca       60     MX       5              alt1.aspmx.l.google.com
 smallcity.ca       60     MX       10             aspmx3.googlemail.com
 ```
 
-- TTL (time-to-live) tells anything looking up this domain how long it should keep it cached before refreshing 
+- TTL (time-to-live) tells anything looking up this domain how long it should keep it cached before refreshing
 - MX records have a priority. The lower the number, the higher the priority. Mail will first try to deliver to the highest priority mail server, and if that fails, then try to deliver the mail to a backup server.
 
 
@@ -296,17 +296,17 @@ Dig is a tool to lookup DNS records. For example:
 
 ```
 # lookup the `smallcity.ca` domain
-dig smallcity.ca                  
+dig smallcity.ca
 
 # lookup the `www` subdomain of `smallcity.ca`
-dig www.smallcity.ca                          
+dig www.smallcity.ca
 
 # lookup the mail records for `smallcity.ca`
-dig smallcity.ca mx                         
+dig smallcity.ca mx
 
 # lookup the `smallcity.ca` domain on a particular name server
 # (in this case, the `smallcity.ca` authority server)
-dig smallcity.ca @dns1.registrar-servers.com   
+dig smallcity.ca @dns1.registrar-servers.com
 ```
 
 Notice the *TTL* changes in some of the lookups if you repeatedly look it up!
@@ -327,7 +327,7 @@ Here we can see the owners and the Name Servers they're configured to use.
 
 > Your computer looks at its `/etc/hosts` file to see if this domain is on record
 > -->
-> If not, your computer asks its configured DNS servers the IP address of a domain 
+> If not, your computer asks its configured DNS servers the IP address of a domain
 > -->
 > The DNS Server checks its cache: if it already knows about the domain, it gives the cache result back as an answer
 > -->
@@ -351,11 +351,11 @@ For example:
 - slack
 - database
 
-They operate with using a conceptual *client -- server* relationship. 
+They operate with using a conceptual *client -- server* relationship.
 
 For example:
 
-- when you develop with Rails, Chrome is the client, Puma is the web server. 
+- when you develop with Rails, Chrome is the client, Puma is the web server.
 - on Mac, if you use the *Apple Mail* application, then the *Apple Mail* is the client, and gmail might be the server
 
 <br>
@@ -437,11 +437,11 @@ There are many ways to host a website on the Internet:
 ---
 # Web Server Software
 
-If you're setting up your own server, you'll need to run web server software. 
+If you're setting up your own server, you'll need to run web server software.
 
-The two most popular are Apache HTTP Server and NGINX. 
+The two most popular are Apache HTTP Server and NGINX.
 
-## Apache 
+## Apache
 - has been around for the longest (created in 1995)
 - often comes installed on Unix-flavoured computers
 
@@ -449,9 +449,9 @@ The two most popular are Apache HTTP Server and NGINX.
 - newer (created in 2002 in Russia)
 - known for its ability to handle high traffic demands
 
-### Which one should you choose? 
+### Which one should you choose?
 
-If you're just getting started, and know nothing about either, I recommend going with NGINX. It'll be a similar learning curve as Apache. 
+If you're just getting started, and know nothing about either, I recommend going with NGINX. It'll be a similar learning curve as Apache.
 *I personally use Apache though because I know how to set it up and configure it.*
 
 <br>
@@ -509,7 +509,7 @@ Often deployment scripts are written to automate putting your application online
 
 ## Capistrano
 
-Capistrano is the most popular Ruby deployment gem. 
+Capistrano is the most popular Ruby deployment gem.
 
 [http://capistranorb.com/](http://capistranorb.com/)
 
@@ -683,7 +683,7 @@ gem 'pg'
 
 - run `bundle`
 
-#### Update your `database.yml` to use Postgres 
+#### Update your `database.yml` to use Postgres
 
 - replace databasse.yml config with the following:
 
