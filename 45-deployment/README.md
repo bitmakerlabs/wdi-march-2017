@@ -364,14 +364,14 @@ For example:
 
 There are many ways to host a website on the Internet:
 
-1. ### setup your own server
-    - in your bedroom
-    - colocation
-    - virtual private server
+### 1. setup your own server
+  - in your bedroom
+  - colocation
+  - virtual private server
 
-2. ### Managed Servies
+### 2. Managed Servies
 
-3. ### Platform as a Service
+### 3. Platform as a Service
 
 ## Setup your server directly up on the Internet
 
@@ -729,6 +729,10 @@ And go the Web URL!
 heroku access:add joe@example.com
 ```
 
+## Have a backup
+
+I suggest creating to instances of your app on heroku, and when you deploy, first deploy to instance A, then deploy to instance B, and then back to A and so on. This way, if one of your deployments doesn't go well, you'll still have the backup working instance you've deployed to.
+
 ## Remaining Steps and Troubleshooting
 
 ### Setup Environment Variables
@@ -781,7 +785,3 @@ You may see warnings when you deploy to Heroku. Some of these can be ignored, bu
 ```
 heroku help
 ```
-
-
-
-
