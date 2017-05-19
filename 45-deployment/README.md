@@ -18,7 +18,9 @@
 ## LANs and the Internet
 
 ### LAN
-> Local Area Network
+<pre>
+Local Area Network
+</pre>
 
 Most LANs we use are contained within a single building:
 
@@ -29,13 +31,17 @@ Most LANs we use are contained within a single building:
 - etc.
 
 ### Internet
-> a global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols
+<pre>
+a global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols
+</pre>
 
 ![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/lans-and-the-internet.png)
 
 ## OSI Model
 
-> The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to their underlying internal structure and technology.
+<pre>
+The Open Systems Interconnection model (OSI model) is a conceptual model that characterizes and standardizes the communication functions of a telecommunication or computing system without regard to their underlying internal structure and technology.
+</pre>
 
 The OSI Model is a conceptual model, like MVC. It's used when communicating and understanding the various aspects of networking.
 
@@ -48,8 +54,9 @@ The OSI Model is a conceptual model, like MVC. It's used when communicating and 
 ![](https://raw.githubusercontent.com/bitmakerlabs/wdi-march-2017/master/45-deployment/imgs/osi-model-in-relation-to-the-internet.png)
 
 ## IP
-
-> Internet Protocol
+<pre>
+Internet Protocol
+</pre>
 
 IP is used to get data from point A to B.
 
@@ -194,8 +201,9 @@ Here's some more well-known port #s:
 443 - HTTPS (Hypertext Transfer Protocol over TLS/SSL)
 
 ### NAT
-
-> Network Address Translation
+<pre>
+Network Address Translation
+</pre>
 
 If your computer uses a private IP address like `10.0.1.201`, how do web servers route the traffic back to you?
 
@@ -206,8 +214,9 @@ The router connected to the Internet, converts your IP address to the public IP,
 <br>
 ---
 # Domain Names
-
-> A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.
+<pre>
+A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.
+</pre>
 
 In other words, a domain name is a *place* on the Internet and is usually something one human can remember and communicate easily to another human. Without domain names, we'd have to tell each other *"Hey, I'm at IP address 206.129.54.3. Can you remember that?""*
 
@@ -220,8 +229,9 @@ google.ca
 ```
 
 ## TLD (Top Level Domains)
-
-> the last segment of a domain name
+<pre>
+the last segment of a domain name
+</pre>
 
 The TLD is made up of the characters after the final period `.` in the domain. They can be purpose specific, country specific and nowadays even corporation specific. Whoever administers the TLD controls how domains using that TLD are doled out.
 
@@ -235,8 +245,9 @@ TLD examples:
 ```
 
 ## Subdomains
-
-> a domain that is a part of a main domain
+<pre>
+a domain that is a part of a main domain
+</pre>
 
 For example:
 
@@ -248,8 +259,9 @@ alexa.bitmaker.co   # alexa is the subdomain
 A subdomain can be pointed to the main domain, as is usually the case with `www`, or can be pointed to a different IP address than the root domain.
 
 ## Registrar
-
-> an entity that manages the reservation of Internet domain names
+<pre>
+an entity that manages the reservation of Internet domain names
+</pre>
 
 *GoDaddy* is the most well-known registrar. I personally use *[namecheap.com](http://namecheap.com)*. For domains on common TLDs (`.com`, `.ca`, etc.), it costs around $10 to $15 per year.
 
@@ -264,13 +276,19 @@ Your ***registrar*** likely provides this service, but you can also use third pa
 You point your *domain name* to the IP address of the server your website is on. Common DNS record types are:
 
 #### A Record
-> points a domain to an IP addrss
+<pre>
+points a domain to an IP address
+</pre>
 
 #### CNAME
-> aliases a name to another name (another CNAME or A Record usually)
+<pre>
+aliases a name to another name (another CNAME or A Record usually)
+</pre>
 
 #### MX
-> Mail Record
+<pre>
+Mail Record
+</pre>
 
 Examples:
 
@@ -325,17 +343,13 @@ Here we can see the owners and the Name Servers they're configured to use.
 
 ### A simplified version of how a computer figures out the IP address of a domain:
 
-> Your computer looks at its `/etc/hosts` file to see if this domain is on record
-> -->
-> If not, your computer asks its configured DNS servers the IP address of a domain
-> -->
-> The DNS Server checks its cache: if it already knows about the domain, it gives the cache result back as an answer
-> -->
-> If it doesn't know about the domain, the DNS server does a `whois` to find out what name server is the authority for the domain, and then asks that authority server what the IP address for that domain is
-> -->
-> It sends the result back to the computer requesting the lookup, and then caches the result for the next lookup
-> -->
-> When the TTL expires for a domain, the DNS server removes it from its cache
+1. Your computer looks at its `/etc/hosts` file to see if this domain is on record
+1. If not, your computer asks its configured DNS servers the IP address of a domain
+1. The DNS Server checks its cache: if it already knows about the domain, it gives the cache result back as an answer
+1. If it doesn't know about the domain, the DNS server does a `whois` to find out what name server is the authority for the domain, and then asks that authority server what the IP address for that domain is
+1. It sends the result back to the computer requesting the lookup, and then caches the result for the next lookup
+1. When the TTL expires for a domain, the DNS server removes it from its cache
+
 
 <br>
 ---
